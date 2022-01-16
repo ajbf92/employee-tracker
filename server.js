@@ -3,6 +3,8 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const initHome = require('./lib/home');
+
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -13,5 +15,6 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT} or http://localhost:${PORT}`);
+//   console.log(`Server running on port ${PORT} or http://localhost:${PORT}`);
+  initHome();
 });
