@@ -1,20 +1,11 @@
 const db = require("./db/connection");
-const express = require("express");
-const PORT = process.env.PORT || 3001;
-const app = express();
+const initHome = require("./lib/home");
 
-const initHome = require('./lib/home');
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// Default response for any other request (Not Found)
-app.use((req, res) => {
-  res.status(404).end();
-});
-
-app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT} or http://localhost:${PORT}`);
-  initHome();
+db.connect((err) => {
+  if (err) {
+    console.log(err);
+    return;
+  } else {
+    initHome();
+  }
 });

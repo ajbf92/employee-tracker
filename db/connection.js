@@ -9,9 +9,9 @@ const db = mysql.createConnection(
     user: "root",
     // Your MySQL password is commented out because I do not use a password
     // password: "",
-    database: "employee_tracker",
+    database: "employee_tracker_db",
   },
-  console.log("Connected to the employee_tracker database."),
+  console.log("Welcome! You are now connected to the employee tracker database."),
 );
 
 module.exports = db;
